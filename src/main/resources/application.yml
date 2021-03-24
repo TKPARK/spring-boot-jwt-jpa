@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: spring boot
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+    cache-duration: PT1H
+  datasource:
+    url: jdbc:log4jdbc:mysql://${db-server.db-url}/${db-server.db-database-name}?autoReconnect=true&useUnicode=true&characterEncoding=utf8
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    username: ${db-server.db-username}
+    password: ${db-server.db-password}
+    max-active: 5
+    max-idle: 2
+    min-idle: 1
+    initial-size: 2
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 5
+server:
+  port: 5000
+jwt:
+  token:
+    header: Authorization
+    issuer: tkpark
+    client-secret: Rel3Bjce2MajBo09qgkNgYaTuzvJe8iwnBFhsDS5
+    expiry-seconds: 600
+db-server:
+  db-url: ""
+  db-username: ""
+  db-password: ""
+  db-database-name: ""
